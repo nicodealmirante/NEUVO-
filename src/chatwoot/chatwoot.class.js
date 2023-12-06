@@ -99,7 +99,7 @@ class ChatwootClass {
             dataIn.from = this.formatNumber(dataIn.from)
 
             const data = {
-                inbox_id: 3,
+                inbox_id: 1,
                 name: dataIn.name,
                 phone_number: dataIn.from,
             };
