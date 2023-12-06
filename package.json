@@ -1,0 +1,29 @@
+{
+  "name": "base-meta-memory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "pre-copy": "cd .. && npm run  copy.lib base-meta-memory",
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "@bot-whatsapp/bot": "latest",
+    "@bot-whatsapp/cli": "latest",
+    "@bot-whatsapp/database": "latest",
+    "@bot-whatsapp/portal": "latest",
+    "@bot-whatsapp/provider": "latest",
+    "@ngrok/ngrok": "^0.9.1",
+    "@whiskeysockets/baileys": "^6.4.0",
+    "axios": "^1.2.1",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "polka": "^0.5.2",
+    "queue-promise": "^2.2.1",
+    "wa-sticker-formatter": "4.3.2"
+  },
+  "author": "",
+  "license": "ISC"
+}
