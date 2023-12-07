@@ -66,7 +66,7 @@ class ServerHttp {
                     return
                 }
         
-
+console.log(bot)
 
                 /**
                  * esto envia un mensaje de texto al ws
