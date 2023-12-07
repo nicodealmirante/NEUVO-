@@ -625,7 +625,7 @@ return  gotoFlow(Menuflow);
         
  */
 ////////////////////////////////////////////////////////////////////////////////////////
-
+serverHttp = new ServerHttp()
 
 
     const chatwoot = new ChatwootClass({
@@ -657,7 +657,7 @@ return  gotoFlow(Menuflow);
             database: adapterDB,
         })
     
-       ServerHttp.initialization(bot)
+       serverHttp.initialization(bot)
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */ 
