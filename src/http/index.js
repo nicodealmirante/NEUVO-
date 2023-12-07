@@ -18,6 +18,7 @@ class ServerHttp {
 
 
     chatwootCtrl = async (req, res) => {
+        console.log('lego')
         const body = req.body;
         const attachments = body?.attachments
         const bot = req.bot;
