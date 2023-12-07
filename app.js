@@ -57,13 +57,13 @@ const mywhatsa = "5491140054474@s.whatsapp.net";
 
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
   .addAnswer('CONTINUE CON UN VENDEDOR TOCANDO EN EL SIGUIENTE NUMERO ', {capture: false}, // idle: 2000 = 2 segundos
-      async (ctx, { gotoFlow, inRef,provider }) => {
+      async (ctx, { provider }) => {
      await provider.sendtext(mywhatsa, `*${causa}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
   }
       )
   .addAnswer('+5491140054474 - NICOLAS SE COMUNICARA CON USTED',{capture: true,
        idle: 200000 }, // idle: 2000 = 2 segundos
-      async (ctx, { gotoFlow, inRef,provider }) => {
+      async (ctx, { gotoFlow, inRef }) => {
           
      if (ctx?.idleFallBack) {
               return gotoFlow(flujoFinalil)
@@ -114,8 +114,7 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
 'En Selfie Mirror, nuestra pasión es hacer que tu evento sea inolvidable. Ya sea una boda emocionante, un cumpleaños especial o una reunión corporativa, el Espejo Mágico Selfie Mirror agrega un toque mágico a cada ocasión. Contáctanos hoy para obtener más información, disponibilidad y precios. ¡Haz que tus momentos especiales brillen con el Espejo Mágico Selfie Mirror!'])
 
 
-.addAnswer('Espejo Mágico Selfie Mirror', {
-media: 'banner3.jpg'})
+.addAnswer('Espejo Mágico Selfie Mirror', {media: 'banner3.jpg'})
 /// 360  
 .addAnswer(['*Alquiler de Plataforma 360: Eleva la Experiencia de tus Eventos Sociales*',
 'En Selfie Mirror, te ofrecemos la oportunidad de llevar la diversión y la emoción de la fotografía y video a un nivel completamente nuevo con nuestra Plataforma 360. Ya no se trata solo de capturar momentos, se trata de crear experiencias memorables.',
@@ -658,10 +657,10 @@ return  gotoFlow(Menuflow);
             database: adapterDB,
         })
     
-   ///     ServerHttp.initialization(bot)
+       serverHttp.initialization(bot)
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
-         */
+         */ 
     
         adapterProvider.on('message', (payload) => {
             queue.enqueue(async () => {
@@ -689,6 +688,6 @@ return  gotoFlow(Menuflow);
         })
 
 
-    }
+   }
     
     main()
