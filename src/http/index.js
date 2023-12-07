@@ -65,7 +65,7 @@ class ServerHttp {
                     res.send('ok')
                     return
                 }
-        
+        console.log(body)
 console.log(bot)
 
                 /**
