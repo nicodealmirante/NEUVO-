@@ -8,17 +8,15 @@ const {createReadStream} = require('fs')
  * con un endpoint o rutas de express para tener un punto de entrada
  * externo y flexible
  */
+
 class ServerHttp {
     app;
     port;
 
-    constructor(_port = 3005){
+    constructor(_port = 3003){
         this.port = _port
     }
-
-
-    chatwootCtrl = async (req, res) => {
-        console.log('lego')
+ chatwootCtrl = async (req, res) => {
         const body = req.body;
         const attachments = body?.attachments
         const bot = req.bot;
@@ -56,7 +54,7 @@ class ServerHttp {
                 const file = attachments?.length ? attachments[0] : null;
                 if (file) {
                     console.log(`Este es el archivo adjunto...`, file.data_url)
-                    await bot.provider.sendMedia(
+                    await bot.providerClass.sendMedia(
                         `${phone}@c.us`,
                          content,
                         file.data_url,
@@ -65,17 +63,17 @@ class ServerHttp {
                     res.send('ok')
                     return
                 }
-        console.log(body)
-console.log(bot)
+        
+
 
                 /**
                  * esto envia un mensaje de texto al ws
                  */
- await bot.ProviderClass.sendtext(      
-     `${phone}`,
+               await bot.providerClass.sendMessage(
+                `${phone}`,
                 content,
-                    );
-                
+                {}
+                );
 
                 res.send('ok');
                 return;
@@ -88,6 +86,7 @@ console.log(bot)
             return res.status(405).send('Error')
         }
     }
+
 
     /**
      * Incia tu server http sera encargador de injectar el instanciamiento del bot
