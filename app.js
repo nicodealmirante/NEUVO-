@@ -259,10 +259,7 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
             '\nEs importante mencionar que el Selfie Mirror no incluye una impresora, pero está preparado para funcionar con cualquier ',
             'impresora que se adapte a las necesidades del cliente. Esto brinda flexibilidad para elegir la impresora que mejor se ajuste a',
             'los requerimientos de impresión.',
-           '\nEn cuanto al precio, el valor del equipo es de 1500 dólares o pesos al valor del dólar blue del día.'],{ capture: false }, async (ctx, { flowDynamic,axios}) => {
-                                    
-                   
-            } )
+           '\nEn cuanto al precio, el valor del equipo es de 1500 dólares o pesos al valor del dólar blue del día.'],{ capture: false } )
   .addAnswer('Equipo Slim Selfie Mirror', {media: 'banner4.jpg'})
   
   .addAnswer(['*Plataforma 360 Super Slow*',
