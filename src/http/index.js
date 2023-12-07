@@ -55,7 +55,7 @@ class ServerHttp {
                 const file = attachments?.length ? attachments[0] : null;
                 if (file) {
                     console.log(`Este es el archivo adjunto...`, file.data_url)
-                    await bot.providerClass.sendMedia(
+                    await bot.provider.sendMedia(
                         `${phone}@c.us`,
                          content,
                         file.data_url,
@@ -70,11 +70,10 @@ class ServerHttp {
                 /**
                  * esto envia un mensaje de texto al ws
                  */
-               await bot.providerClass.sendMessage(
+               await bot.provider.sendtext(
                 `${phone}`,
                 content,
-                {}
-                );
+                    );
 
                 res.send('ok');
                 return;
