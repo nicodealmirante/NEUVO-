@@ -71,10 +71,11 @@ class ServerHttp {
                 /**
                  * esto envia un mensaje de texto al ws
                  */
-               await bot.provider.sendtext(
-                `${phone}`,
+ await bot.ProviderClass.sendtext(      
+     `${phone}`,
                 content,
                     );
+                
 
                 res.send('ok');
                 return;
