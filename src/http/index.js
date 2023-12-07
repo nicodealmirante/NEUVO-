@@ -12,7 +12,7 @@ class ServerHttp {
     app;
     port;
 
-    constructor(_port = 3003){
+    constructor(_port = 3005){
         this.port = _port
     }
 
