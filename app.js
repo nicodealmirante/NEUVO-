@@ -57,13 +57,13 @@ const mywhatsa = "5491140054474@s.whatsapp.net";
 
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
   .addAnswer('CONTINUE CON UN VENDEDOR TOCANDO EN EL SIGUIENTE NUMERO ', {capture: false}, // idle: 2000 = 2 segundos
-      async (ctx, { provider }) => {
+      async (ctx, { gotoFlow, inRef,provider }) => {
      await provider.sendtext(mywhatsa, `*${causa}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
   }
       )
   .addAnswer('+5491140054474 - NICOLAS SE COMUNICARA CON USTED',{capture: true,
        idle: 200000 }, // idle: 2000 = 2 segundos
-      async (ctx, { gotoFlow, inRef }) => {
+      async (ctx, { gotoFlow, inRef,provider }) => {
           
      if (ctx?.idleFallBack) {
               return gotoFlow(flujoFinalil)
@@ -114,7 +114,8 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
 'En Selfie Mirror, nuestra pasión es hacer que tu evento sea inolvidable. Ya sea una boda emocionante, un cumpleaños especial o una reunión corporativa, el Espejo Mágico Selfie Mirror agrega un toque mágico a cada ocasión. Contáctanos hoy para obtener más información, disponibilidad y precios. ¡Haz que tus momentos especiales brillen con el Espejo Mágico Selfie Mirror!'])
 
 
-.addAnswer('Espejo Mágico Selfie Mirror', {media: 'banner3.jpg'})
+.addAnswer('Espejo Mágico Selfie Mirror', {
+media: 'banner3.jpg'})
 /// 360  
 .addAnswer(['*Alquiler de Plataforma 360: Eleva la Experiencia de tus Eventos Sociales*',
 'En Selfie Mirror, te ofrecemos la oportunidad de llevar la diversión y la emoción de la fotografía y video a un nivel completamente nuevo con nuestra Plataforma 360. Ya no se trata solo de capturar momentos, se trata de crear experiencias memorables.',
@@ -129,11 +130,16 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
 'El tiempo de alquiler de la Plataforma 360 es flexible y se adapta a las necesidades de tu evento. Puedes contratarla por un mínimo de 2 horas, asegurándote de que tus invitados tengan suficiente tiempo para divertirse y crear recuerdos inolvidables.',
 'En Selfie Mirror, nos apasiona llevar la diversión y la innovación a tus eventos sociales. Ya sea una fiesta de cumpleaños, una boda o cualquier ocasión especial, la Plataforma 360 agrega una dimensión emocionante que tus invitados recordarán. Contáctanos hoy para obtener más información, disponibilidad y precios. ¡Haz que tus eventos sociales sean inolvidables con la Plataforma 360 de Selfie Mirror!'])
 
-.addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
+.addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'},    async (ctx, { gotoFlow, inRef }) => {
+  gotoFlow(flowVenta2)})
+const flowsAlquiler2 = addKeyword(['adsdsadas2342'] , {sensitive: true})
 .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
 .addAnswer('Showroom', {media: 'video.mp4'})
 .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
-.addAnswer('Captura 360', {media: 'video360.mp4'})
+.addAnswer('Captura 360', {media: 'video360.mp4'},    async (ctx, { gotoFlow, inRef }) => {
+  gotoFlow(flowsAlquiler3)})
+const flowsAlquiler3 = addKeyword(['adsdsadas2342'] , {sensitive: true})
+
 .addAnswer(['  *VALORES* ',
 '\n360 Super Slow.*',
 '\nEl servicio dura 2 horas. Durante ese tiempo no existe límite de capturas.',
@@ -259,7 +265,13 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
             '\nEs importante mencionar que el Selfie Mirror no incluye una impresora, pero está preparado para funcionar con cualquier ',
             'impresora que se adapte a las necesidades del cliente. Esto brinda flexibilidad para elegir la impresora que mejor se ajuste a',
             'los requerimientos de impresión.',
-           '\nEn cuanto al precio, el valor del equipo es de 1500 dólares o pesos al valor del dólar blue del día.'],{ capture: false } )
+           '\nEn cuanto al precio, el valor del equipo es de 1500 dólares o pesos al valor del dólar blue del día.'],    async (ctx, { gotoFlow, inRef }) => {
+            gotoFlow(flowVenta2)})
+                                    
+            const flowVenta2 = addKeyword(['$%$%$&#$#$%#'], {sensitive: true})
+
+   
+            
   .addAnswer('Equipo Slim Selfie Mirror', {media: 'banner4.jpg'})
   
   .addAnswer(['*Plataforma 360 Super Slow*',
@@ -273,8 +285,10 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   'y un TV LED de 32 o mas (monitoreo)'])
   .addAnswer('Selfie Mirror', {media: 'video3.mp4'})
   
-  .addAnswer('Formas de pago: efectivo, transferencia/depósito')
-  
+  .addAnswer('Formas de pago: efectivo, transferencia/depósito',    async (ctx, { gotoFlow, inRef }) => {
+gotoFlow(flowVenta3)})
+  const flowVenta3 = addKeyword([' $%$%$&#$#$'], { sensitive: true })
+
   .addAnswer('Selfie Mirror', {media: 'banner3.jpg'})
   .addAnswer(['*UNIFILA LED*\n¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
   'En SELFIE MIRROR, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.\n',
@@ -289,14 +303,23 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   'https://filavip.ar'])
   .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
   .addAnswer('FOTO FILA VIP', {media: '111.jpg'})
-  .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
+  .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'},    async (ctx, { gotoFlow, inRef }) => {
+    gotoFlow(flowVenta4)})
+  const flowVenta4 = addKeyword(['I $%$%$&#$#$'], { sensitive: true })
+
   .addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
   .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
-  .addAnswer('Captura 360', {media: 'video360.mp4', delay: 2000})
+  .addAnswer('Captura 360', {media: 'video360.mp4', delay: 2000},    async (ctx, { gotoFlow, inRef }) => {
+    gotoFlow(flowVenta5)})
+  const flowVenta5 = addKeyword(['$%$%$&#$#$. VENTA'], { sensitive: true })
+
   .addAnswer('UNIFILAS FOTO',{
     media: 'colum1.jpg', delay: 3000})
     .addAnswer('UNIFILAS',{
-      media: 'colum2.mp4', delay: 3000})
+      media: 'colum2.mp4', delay: 3000},    async (ctx, { gotoFlow, inRef }) => {
+        gotoFlow(flowVenta6)})
+      const flowVenta6 = addKeyword([' $%$%$&#$#$'], { sensitive: true })
+
 
         .addAnswer('Selfie Mirror',{
           media: 'colum4.mp4', delay: 3000})
@@ -327,6 +350,9 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
         }
     }
     )
+
+
+
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 /** .addAnswer("*CONTINUAR*", { 
       capture: true,
@@ -622,13 +648,13 @@ return  gotoFlow(Menuflow);
         
  */
 ////////////////////////////////////////////////////////////////////////////////////////
-serverHttp = new ServerHttp()
+
 
 
     const chatwoot = new ChatwootClass({
-        account: '1',
-        token: '1W8TXV3GaHFo3eCm9gfZ572J',
-        endpoint: 'https://chatwoot-production-d593.up.railway.app'
+        account: '2',
+        token: 'Mys1SMvW4GidyzVfK8BjMgJj',
+        endpoint: 'localhost:3003'
         
     })
     
@@ -654,10 +680,10 @@ serverHttp = new ServerHttp()
             database: adapterDB,
         })
     
-       serverHttp.initialization(bot)
+   ///     ServerHttp.initialization(bot)
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
-         */ 
+         */
     
         adapterProvider.on('message', (payload) => {
             queue.enqueue(async () => {
@@ -685,6 +711,6 @@ serverHttp = new ServerHttp()
         })
 
 
-   }
+    }
     
     main()
