@@ -313,8 +313,6 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
 
   .addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
-
-     const flowVenta565 = addKeyword(['I $%$%$&#$#$'], { sensitive: true })
   .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
   .addAnswer('Captura 360', {media: 'video360.mp4', delay: 2000},)
   .addAnswer('UNIFILAS FOTO',{
@@ -666,7 +664,7 @@ return  gotoFlow(Menuflow);
     
     const main = async () => {
         const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow,Cliente,flowVenta2,flowVenta3,flowVenta4,flowVenta5,flowVenta6])
+        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow,Cliente])
 
         const adapterProvider = createProvider(MetaProvider, {
           jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
