@@ -71,8 +71,7 @@ class ServerHttp {
                  */
                await bot.provider.sendtext(
                 `${phone}@s.whatsapp.net`,
-                content,
-                {}
+                content   
                 );
 
                 res.send('ok');
