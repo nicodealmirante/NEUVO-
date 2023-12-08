@@ -115,8 +115,11 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
 
 
 .addAnswer('Espejo Mágico Selfie Mirror', {
-media: 'banner3.jpg'})
-/// 360  
+media: 'banner3.jpg'},    async (ctx, { gotoFlow, inRef }) => {
+  gotoFlow(flowVenta2)})
+/// 360  +
+const flowsAlquiler2 = addKeyword(['INFO. ALQUILER'], {sensitive: true})
+
 .addAnswer(['*Alquiler de Plataforma 360: Eleva la Experiencia de tus Eventos Sociales*',
 'En Selfie Mirror, te ofrecemos la oportunidad de llevar la diversión y la emoción de la fotografía y video a un nivel completamente nuevo con nuestra Plataforma 360. Ya no se trata solo de capturar momentos, se trata de crear experiencias memorables.',
 'Nuestra Plataforma 360 te brinda la oportunidad de sorprender a tus invitados con un servicio de alquiler único y emocionante. ¿Qué puedes esperar?',
@@ -130,15 +133,18 @@ media: 'banner3.jpg'})
 'El tiempo de alquiler de la Plataforma 360 es flexible y se adapta a las necesidades de tu evento. Puedes contratarla por un mínimo de 2 horas, asegurándote de que tus invitados tengan suficiente tiempo para divertirse y crear recuerdos inolvidables.',
 'En Selfie Mirror, nos apasiona llevar la diversión y la innovación a tus eventos sociales. Ya sea una fiesta de cumpleaños, una boda o cualquier ocasión especial, la Plataforma 360 agrega una dimensión emocionante que tus invitados recordarán. Contáctanos hoy para obtener más información, disponibilidad y precios. ¡Haz que tus eventos sociales sean inolvidables con la Plataforma 360 de Selfie Mirror!'])
 
-.addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'},    async (ctx, { gotoFlow, inRef }) => {
-  gotoFlow(flowVenta2)})
-const flowsAlquiler2 = addKeyword(['adsdsadas2342'] , {sensitive: true})
-.addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
+.addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
+.addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'},    async (ctx, { gotoFlow, inRef }) => {
+  gotoFlow(flowVenta3)}
+  )
+const flowsAlquiler3 = addKeyword(['adsdsadas2342'] , {sensitive: true})
+
+
 .addAnswer('Showroom', {media: 'video.mp4'})
 .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
 .addAnswer('Captura 360', {media: 'video360.mp4'},    async (ctx, { gotoFlow, inRef }) => {
-  gotoFlow(flowsAlquiler3)})
-const flowsAlquiler3 = addKeyword(['adsdsadas2342'] , {sensitive: true})
+  gotoFlow(flowsAlquiler4)})
+const flowsAlquiler4 = addKeyword(['adsdsadas2342'] , {sensitive: true})
 
 .addAnswer(['  *VALORES* ',
 '\n360 Super Slow.*',
@@ -151,7 +157,13 @@ const flowsAlquiler3 = addKeyword(['adsdsadas2342'] , {sensitive: true})
 '\nValor ambos servicios por 2 Horas $ 180.000',
 '\nEl minimo de alquiler son 2 horas',
 '\nEl valor de la Hora adicional es de $ 50.000'])
-.addAnswer(['🚚El valor no incluye traslados'])
+.addAnswer(['🚚El valor no incluye traslados'],    async (ctx, { gotoFlow, inRef }) => {
+  gotoFlow(flowVenta5)}
+  )
+  const flowsAlquiler5 = addKeyword(['adsdsadas2342'] , {sensitive: true})
+
+
+
     .addAnswer("Opciones", {capture: true, 
       buttons: [
           {body: 'INFO. ALQUILER'},
@@ -257,18 +269,18 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
            'Slim, permite transportarlo fácilmente en cualquier vehículo. Esto brinda una gran versatilidad y conveniencia para eventos ',
             'y fiestas.'],{delay: 2000})
   
-  .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
+  .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'},    async (ctx, { gotoFlow, inRef }) => {
+    gotoFlow(flowVenta2)})
   
-  
+          const flowVenta2 = addKeyword(['$%$%$&#$#$%#'], {sensitive: true})
   .addAnswer(['La facilidad de uso es una de las ventajas clave del Espejo Mágico. Simplemente tienes que enchufarlo y presionar el ',
               'botón de encendido para que empiece a funcionar. Esto agiliza la instalación y permite que los eventos comiencen rápidamente.',
             '\nEs importante mencionar que el Selfie Mirror no incluye una impresora, pero está preparado para funcionar con cualquier ',
             'impresora que se adapte a las necesidades del cliente. Esto brinda flexibilidad para elegir la impresora que mejor se ajuste a',
             'los requerimientos de impresión.',
-           '\nEn cuanto al precio, el valor del equipo es de 1500 dólares o pesos al valor del dólar blue del día.'],    async (ctx, { gotoFlow, inRef }) => {
-            gotoFlow(flowVenta2)})
+           '\nEn cuanto al precio, el valor del equipo es de 1500 dólares o pesos al valor del dólar blue del día.'])
                                     
-            const flowVenta2 = addKeyword(['$%$%$&#$#$%#'], {sensitive: true})
+    
 
    
             
@@ -282,14 +294,18 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
          '\n*Equipo listo para trabajar*.',
         'El valor del equipo es de 1500 U$S.' ,
         '▶ REQUERIDO:Necesita contar con un Apple Iphone 13 o suoperior (dispositivo de grabacion)',
-  'y un TV LED de 32 o mas (monitoreo)'])
-  .addAnswer('Selfie Mirror', {media: 'video3.mp4'})
-  
-  .addAnswer('Formas de pago: efectivo, transferencia/depósito',    async (ctx, { gotoFlow, inRef }) => {
-gotoFlow(flowVenta3)})
+  'y un TV LED de 32 o mas (monitoreo)'],    async (ctx, { gotoFlow, inRef }) => {
+    gotoFlow(flowVenta3)})
   const flowVenta3 = addKeyword([' $%$%$&#$#$'], { sensitive: true })
 
-  .addAnswer('Selfie Mirror', {media: 'banner3.jpg'})
+  .addAnswer('Selfie Mirror', {media: 'video3.mp4'})
+  
+  .addAnswer('Formas de pago: efectivo, transferencia/depósito')
+
+  .addAnswer('Selfie Mirror', {media: 'banner3.jpg'},    async (ctx, { gotoFlow, inRef }) => {
+    gotoFlow(flowVenta4)})
+    const flowVenta4 = addKeyword(['I $%$%$&#$#$'], { sensitive: true })
+
   .addAnswer(['*UNIFILA LED*\n¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
   'En SELFIE MIRROR, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.\n',
   '¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?\n',
@@ -302,10 +318,10 @@ gotoFlow(flowVenta3)})
   '*VALORES*\n',
   'https://filavip.ar'])
   .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
-  .addAnswer('FOTO FILA VIP', {media: '111.jpg'})
+  .addAnswer('FOTO FILA VIP', {media: '111.jpg'},    async (ctx, { gotoFlow, inRef }) => {
+    gotoFlow(flowVenta5)})
   .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'},    async (ctx, { gotoFlow, inRef }) => {
     gotoFlow(flowVenta4)})
-  const flowVenta4 = addKeyword(['I $%$%$&#$#$'], { sensitive: true })
 
   .addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
   .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
@@ -665,7 +681,7 @@ return  gotoFlow(Menuflow);
     
     const main = async () => {
         const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow,Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
+        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow,Cliente,flowVenta2,flowVenta3,flowVenta4,flowVenta5,flowVenta6,flowsAlquiler2,flowsAlquiler3])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
 
         const adapterProvider = createProvider(MetaProvider, {
           jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
