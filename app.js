@@ -115,7 +115,8 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
 
 
 .addAnswer('Espejo Mágico Selfie Mirror', {
-media: 'banner3.jpg'},    async (ctx, { gotoFlow, inRef }) => {
+media: 'banner3.jpg'})
+.addAction(async (ctx, { gotoFlow, inRef }) => {
  await gotoFlow(flowsAlquiler2)})
 /// 360  +
 const flowsAlquiler2 = addKeyword(['INFO. ALQUILER'], {sensitive: true})
@@ -134,7 +135,8 @@ const flowsAlquiler2 = addKeyword(['INFO. ALQUILER'], {sensitive: true})
 'En Selfie Mirror, nos apasiona llevar la diversión y la innovación a tus eventos sociales. Ya sea una fiesta de cumpleaños, una boda o cualquier ocasión especial, la Plataforma 360 agrega una dimensión emocionante que tus invitados recordarán. Contáctanos hoy para obtener más información, disponibilidad y precios. ¡Haz que tus eventos sociales sean inolvidables con la Plataforma 360 de Selfie Mirror!'])
 
 .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
-.addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'},    async (ctx, { gotoFlow, inRef }) => {
+.addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
+.addAction(async (ctx, { gotoFlow, inRef }) => {
  await gotoFlow(flowsAlquiler3)}
   )
 const flowsAlquiler3 = addKeyword(['adsdsadas2342'] , {sensitive: true})
@@ -142,7 +144,8 @@ const flowsAlquiler3 = addKeyword(['adsdsadas2342'] , {sensitive: true})
 
 .addAnswer('Showroom', {media: 'video.mp4'})
 .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
-.addAnswer('Captura 360', {media: 'video360.mp4'},    async (ctx, { gotoFlow, inRef }) => {
+.addAnswer('Captura 360', {media: 'video360.mp4'})
+.addAction(async (ctx, { gotoFlow, inRef }) => {
 await  gotoFlow(flowsAlquiler4)})
 const flowsAlquiler4 = addKeyword(['adsdsadas2342'] , {sensitive: true})
 
@@ -157,7 +160,8 @@ const flowsAlquiler4 = addKeyword(['adsdsadas2342'] , {sensitive: true})
 '\nValor ambos servicios por 2 Horas $ 180.000',
 '\nEl minimo de alquiler son 2 horas',
 '\nEl valor de la Hora adicional es de $ 50.000'])
-.addAnswer(['🚚El valor no incluye traslados'],    async (ctx, { gotoFlow, inRef }) => {
+.addAnswer(['🚚El valor no incluye traslados'])
+.addAction(async (ctx, { gotoFlow, inRef }) => {
  await gotoFlow(flowsAlquiler5)}
   )
   const flowsAlquiler5 = addKeyword(['adsdsadas2342'] , {sensitive: true})
@@ -269,7 +273,8 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
            'Slim, permite transportarlo fácilmente en cualquier vehículo. Esto brinda una gran versatilidad y conveniencia para eventos ',
             'y fiestas.'],{delay: 2000})
   
-  .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'},    async (ctx, { gotoFlow, inRef }) => {
+  .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
+  .addAction(async (ctx, { gotoFlow, inRef }) => {
    await gotoFlow(flowVenta2)})
   
           const flowVenta2 = addKeyword(['$%$%$&#$#$%#'], {sensitive: true})
@@ -294,7 +299,8 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
          '\n*Equipo listo para trabajar*.',
         'El valor del equipo es de 1500 U$S.' ,
         '▶ REQUERIDO:Necesita contar con un Apple Iphone 13 o suoperior (dispositivo de grabacion)',
-  'y un TV LED de 32 o mas (monitoreo)'],    async (ctx, { gotoFlow, inRef }) => {
+  'y un TV LED de 32 o mas (monitoreo)'])
+  .addAction(async (ctx, { gotoFlow, inRef }) => {
    await gotoFlow(flowVenta3)})
   const flowVenta3 = addKeyword([' $%$%$&#$#$'], { sensitive: true })
 
@@ -302,7 +308,8 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   
   .addAnswer('Formas de pago: efectivo, transferencia/depósito')
 
-  .addAnswer('Selfie Mirror', {media: 'banner3.jpg'},    async (ctx, { gotoFlow, inRef }) => {
+  .addAnswer('Selfie Mirror', {media: 'banner3.jpg'})
+  .addAction(async (ctx, { gotoFlow, inRef }) => {
    await gotoFlow(flowVenta4)})
     const flowVenta4 = addKeyword(['I $%$%$&#$#$'], { sensitive: true })
 
@@ -318,7 +325,8 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   '*VALORES*\n',
   'https://filavip.ar'])
   .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
-  .addAnswer('FOTO FILA VIP', {media: '111.jpg'},  async (ctx, { gotoFlow, inRef }) => {
+  .addAnswer('FOTO FILA VIP', {media: '111.jpg'})
+  .addAction(async (ctx, { gotoFlow, inRef }) => {
     await gotoFlow(flowVenta56)})
      const flowVenta56 = addKeyword(['I $%$%$&#$#$'], { sensitive: true })
 
@@ -326,7 +334,8 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
  
   .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
 
-  .addAnswer('Showroom', {media: 'video.mp4', delay: 4000},  async (ctx, { gotoFlow, inRef }) => {
+  .addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
+  .addAction(async (ctx, { gotoFlow, inRef }) => {
     await gotoFlow(flowVenta565)})
      const flowVenta565 = addKeyword(['I $%$%$&#$#$'], { sensitive: true })
   .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
@@ -337,7 +346,8 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   .addAnswer('UNIFILAS FOTO',{
     media: 'colum1.jpg', delay: 3000})
     .addAnswer('UNIFILAS',{
-      media: 'colum2.mp4', delay: 3000},    async (ctx, { gotoFlow, inRef }) => {
+      media: 'colum2.mp4', delay: 3000})
+      .addAction(async (ctx, { gotoFlow, inRef }) => {
         gotoFlow(flowVenta6)})
       const flowVenta6 = addKeyword([' $%$%$&#$#$'], { sensitive: true })
 
