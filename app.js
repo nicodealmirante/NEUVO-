@@ -116,7 +116,7 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
 
 .addAnswer('Espejo Mágico Selfie Mirror', {
 media: 'banner3.jpg'},    async (ctx, { gotoFlow, inRef }) => {
-  gotoFlow(flowVenta2)})
+  gotoFlow(flowsAlquiler2)})
 /// 360  +
 const flowsAlquiler2 = addKeyword(['INFO. ALQUILER'], {sensitive: true})
 
@@ -135,7 +135,7 @@ const flowsAlquiler2 = addKeyword(['INFO. ALQUILER'], {sensitive: true})
 
 .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
 .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'},    async (ctx, { gotoFlow, inRef }) => {
-  gotoFlow(flowVenta3)}
+  gotoFlow(flowsAlquiler3)}
   )
 const flowsAlquiler3 = addKeyword(['adsdsadas2342'] , {sensitive: true})
 
@@ -158,7 +158,7 @@ const flowsAlquiler4 = addKeyword(['adsdsadas2342'] , {sensitive: true})
 '\nEl minimo de alquiler son 2 horas',
 '\nEl valor de la Hora adicional es de $ 50.000'])
 .addAnswer(['🚚El valor no incluye traslados'],    async (ctx, { gotoFlow, inRef }) => {
-  gotoFlow(flowVenta5)}
+  gotoFlow(flowsAlquiler5)}
   )
   const flowsAlquiler5 = addKeyword(['adsdsadas2342'] , {sensitive: true})
 
