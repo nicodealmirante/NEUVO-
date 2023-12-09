@@ -653,7 +653,7 @@ return  gotoFlow(Menuflow);
     const chatwoot = new ChatwootClass({
         account: '1',
         token: '1W8TXV3GaHFo3eCm9gfZ572J',
-        endpoint: 'neluna.com.ar'
+        endpoint: 'chatwoot-production-d593.up.railway.app'
         
     })
     
