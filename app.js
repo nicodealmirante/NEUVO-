@@ -4,6 +4,7 @@ const Queue = require('queue-promise')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
 const MockAdapter = require('@bot-whatsapp/database/mock')
 const ServerHttp = require('./src/http')
+const serverHttp = new ServerHttp()
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
 let motivo;  
@@ -679,7 +680,7 @@ return  gotoFlow(Menuflow);
             database: adapterDB,
         })
     
-   ///     ServerHttp.initialization(bot)
+    serverHttp.initialization(bot)
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */
