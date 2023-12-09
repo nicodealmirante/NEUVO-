@@ -651,9 +651,9 @@ return  gotoFlow(Menuflow);
 
 
     const chatwoot = new ChatwootClass({
-        account: '2',
-        token: 'Mys1SMvW4GidyzVfK8BjMgJj',
-        endpoint: 'localhost:3003'
+        account: '1',
+        token: '1W8TXV3GaHFo3eCm9gfZ572J',
+        endpoint: 'neluna.com.ar'
         
     })
     
