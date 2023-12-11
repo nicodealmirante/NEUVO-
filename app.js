@@ -148,10 +148,10 @@ media: 'banner3.jpg'})
 'Incluye accesorios (pistola lanza burbujas, lanza billetes.)',
 'El valor del servicio de 2 horas es de $ 100.000 .-'])
 .addAnswer(['\n*Espejo Magico*',
-'\nValor Servicio por 2 Horas $ 100.000',
-'\nValor ambos servicios por 2 Horas $ 180.000',
+'\nValor Servicio por 2 Horas $ 130.000',
+'\nValor ambos servicios por 2 Horas $ 240.000',
 '\nEl minimo de alquiler son 2 horas',
-'\nEl valor de la Hora adicional es de $ 50.000'])
+'\nEl valor de la Hora adicional es de $ 75.000'])
 .addAnswer(['🚚El valor no incluye traslados'])
 
 
