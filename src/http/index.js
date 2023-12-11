@@ -22,6 +22,7 @@ class ServerHttp {
         const bot = req.bot;
     
         
+    
             /**
              * La parte que se encarga de determinar si un mensaje es enviado al whatsapp del cliente
              */
@@ -36,14 +37,13 @@ class ServerHttp {
                     await bot.provider.sendMedia(
                         `${phone}@c.us`,
                          content,
-                        {file.data_url}
                     );
                     res.send('ok')
                     return
                 }
         
 
-
+            
                 /**
                  * esto envia un mensaje de texto al ws
                  */
@@ -58,10 +58,6 @@ class ServerHttp {
             }
 
             res.send('ok')
-        } catch (error) {
-            console.log(error)
-            return res.status(405).send('Error')
-        }
     }
 
 
