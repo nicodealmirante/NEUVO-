@@ -261,7 +261,7 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
            '\nSu diseño compacto y portátil, con dimensiones de 126 cm de alto x 70 cm de ancho y 20 cm de profundidad en el modelo',
            'Slim, permite transportarlo fácilmente en cualquier vehículo. Esto brinda una gran versatilidad y conveniencia para eventos ',
             'y fiestas.'],{delay: 2000})
-  
+            .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
   .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
  
   .addAnswer(['La facilidad de uso es una de las ventajas clave del Espejo Mágico. Simplemente tienes que enchufarlo y presionar el ',
@@ -269,12 +269,13 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
             '\nEs importante mencionar que el Selfie Mirror no incluye una impresora, pero está preparado para funcionar con cualquier ',
             'impresora que se adapte a las necesidades del cliente. Esto brinda flexibilidad para elegir la impresora que mejor se ajuste a',
             'los requerimientos de impresión.',
-           '\nEn cuanto al precio, el valor del equipo es de 1500 dólares o pesos al valor del dólar blue del día.'])
+           '\nEn cuanto al precio, el valor del equipo es de 1700 dólares o pesos al valor del dólar blue del día.'])
                                     
     
-
+           .addAnswer('Captura 360', {media: 'video360.mp4', delay: 2000},)
    
-            
+           .addAnswer('Selfie Mirror', {media: 'banner3.jpg'})
+
   .addAnswer('Equipo Slim Selfie Mirror', {media: 'banner4.jpg'})
   
   .addAnswer(['*Plataforma 360 Super Slow*',
@@ -283,7 +284,7 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   'Los invitados podran escanear un codigo QR UNICO para poder visualizar todos los videos del evento *EN EL MOMENTO*',
           '\nLa plataforma controlada por mando a distancia incluye: variador de velocidad, arranque y parada suave, soporte reforzado, Aro de Led, 4 bastones led pixel de 1 mt, led rgb en plataforma, stand para TV (no incluida) y asesoramiento tecnico.',
          '\n*Equipo listo para trabajar*.',
-        'El valor del equipo es de 1500 U$S.' ,
+        'El valor del equipo es de 1700 U$S.' ,
         '▶ REQUERIDO:Necesita contar con un Apple Iphone 13 o suoperior (dispositivo de grabacion)',
   'y un TV LED de 32 o mas (monitoreo)'])
 
@@ -293,7 +294,9 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
 
   .addAnswer('Selfie Mirror', {media: 'banner3.jpg'})
 
-
+  .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
+  .addAnswer('FOTO FILA VIP', {media: '111.jpg'})
+ 
   .addAnswer(['*UNIFILA LED*\n¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
   'En SELFIE MIRROR, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.\n',
   '¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?\n',
@@ -305,21 +308,17 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   '¡Haz que tu negocio brille con nuestros organizadores de fila Pixel LED! 💫✨ #TecnologíaLED #OrganizaciónEfectiva #AtraeClientes\n',
   '*VALORES*\n',
   'https://filavip.ar'])
-  .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
-  .addAnswer('FOTO FILA VIP', {media: '111.jpg'})
- 
 
-  .addAnswer('Selfie Mirror', {media: 'banner3.jpg'})
+
  
   .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
 
   .addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
-  .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
-  .addAnswer('Captura 360', {media: 'video360.mp4', delay: 2000},)
+
+
   .addAnswer('UNIFILAS FOTO',{
     media: 'colum1.jpg', delay: 3000})
-    .addAnswer('UNIFILAS',{
-      media: 'colum2.mp4', delay: 3000})
+
     
         .addAnswer('Selfie Mirror',{
           media: 'colum4.mp4', delay: 3000})
@@ -333,7 +332,8 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   await flowDynamic(`\n\n*PLATAFORMA 360*\n  💵   *U$D 1,500 .-*   🔒 \n  💱 > U$D = AR$ > 💱\n  📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`,)
   await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱` ,)
   await flowDynamic( `\n\n*FILA VIP*\n  ORGANIZADORES DE FILA PIXEL CON BASE DE ACERO INOX \n  *U$S 70 c/u*. \n   ó  \n *AR$ ${new Intl.NumberFormat('es-MX').format(dolar*70)}*  \n  SOGAS TRENZADA COLOR\n  *U$S 20* \n   ó  \n *AR$ ${new Intl.NumberFormat('es-MX').format(dolar*20)}* \nPROMO x4 UNIFILAS + 2 SOGAS \n 💲💲💲 *U$S 275* 💲💲💲\n   ó  \n *AR$ ${new Intl.NumberFormat('es-MX').format(dolar*275)}*`)})
-
+  .addAnswer('UNIFILAS',{
+    media: 'colum2.mp4', delay: 3000})
 .addAnswer("Opciones", {capture: true, 
   buttons: [
       {body: 'INFO. ALQUILER'},
