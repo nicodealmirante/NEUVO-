@@ -42,13 +42,16 @@ class ServerHttp {
                 res.send('ok')
                 return
             }
-
+         
+              function b64_to_utf8(str) {
+                return decodeURIComponent(escape(window.atob(str)));
+              }
             /**
              * La parte que se encarga de determinar si un mensaje es enviado al whatsapp del cliente
              */
             const checkIfMessage = body?.private == false && body?.event == "message_created" && body?.message_type === "outgoing"
             if (checkIfMessage) {
-                const phone = body.conversation?.meta?.sender?.phone_number.replace('+', '')
+                const phone = b64_to_utf8(body.conversation?.meta?.sender?.phone_number.replace('+', ''))
                 const content = body?.content ?? '';
 
                 const file = attachments?.length ? attachments[0] : null;

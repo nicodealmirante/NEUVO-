@@ -1,3 +1,12 @@
+function utf8_to_b64(str) {
+    return window.btoa(unescape(encodeURIComponent(str)));
+  }
+  
+  function b64_to_utf8(str) {
+    return decodeURIComponent(escape(window.atob(str)));
+  }
+
+
 /**
  * Es la funciona que importa para guardar los mensajes y crear lo que sea necesario
  * @param {*} dataIn pasando los datos del contacto + el mensaje

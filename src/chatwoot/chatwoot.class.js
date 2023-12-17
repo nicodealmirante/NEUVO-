@@ -1,3 +1,9 @@
+function utf8_to_b64(str) {
+        return window.btoa(unescape(encodeURIComponent(str)));
+      }
+
+
+
 class ChatwootClass {
 
     config = {
@@ -6,6 +12,7 @@ class ChatwootClass {
         endpoint: undefined
     }
 
+    
     /**
      * Recibir todos los parametro de configuracio de conexion con chatwoot
      */
@@ -26,7 +33,7 @@ class ChatwootClass {
         this.config = _config
 
     }
-
+    
     /**
      * [utility]
      * Formateo del formato del numero +34 34
@@ -35,7 +42,7 @@ class ChatwootClass {
      */
     formatNumber = (number) => {
         if (!number.startsWith("+")) {
-            return `+${number}`
+            return utf8_to_b64(`+${number}`)
         }
         return number
     }
