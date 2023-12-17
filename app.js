@@ -330,8 +330,9 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   console.log('VENTA')
   await flowDynamic(`*VALORES*\n   *ESPEJO MAGICO* \n  💵   *U$D 1,700 .-*   🔒 \n 💱 > U$D = AR$ > 💱 \n 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1700)} .-🔓 `,)
   await flowDynamic(`\n\n*PLATAFORMA 360*\n  💵   *U$D 1,500 .-*   🔒 \n  💱 > U$D = AR$ > 💱\n  📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`,)
-  await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱` ,)
-  await flowDynamic( `\n\n*FILA VIP*\n  ORGANIZADORES DE FILA PIXEL CON BASE DE ACERO INOX \n 💵💵 *U$S 70 c/u*.💵💵\n 💱 > U$D = AR$ > 💱 \n 💲💲💲*AR$ ${new Intl.NumberFormat('es-MX').format(dolar*70)}*  \n  SOGAS TRENZADA COLOR\n 💵💵 *U$S 20*💵💵 \n  💱 > U$D = AR$ > 💱 \n 💲💲💲*AR$ ${new Intl.NumberFormat('es-MX').format(dolar*20)}*💲💲💲 \nPROMO x4 UNIFILAS + 2 SOGAS \n 💵💵 *U$S 275* 💵💵\n💱 > U$D = AR$ > 💱\n 💲💲💲*AR$ ${new Intl.NumberFormat('es-MX').format(dolar*275)}*💲💲💲`)})
+  await flowDynamic( `\n\n*FILA VIP*\n  ORGANIZADORES DE FILA PIXEL CON BASE DE ACERO INOX \n 💵💵 *U$S 70 c/u*.💵💵\n 💱 > U$D = AR$ > 💱 \n 💲💲💲*AR$ ${new Intl.NumberFormat('es-MX').format(dolar*70)}*  \n  SOGAS TRENZADA COLOR\n 💵💵 *U$S 20*💵💵 \n  💱 > U$D = AR$ > 💱 \n 💲💲💲*AR$ ${new Intl.NumberFormat('es-MX').format(dolar*20)}*💲💲💲 \nPROMO x4 UNIFILAS + 2 SOGAS \n 💵💵 *U$S 275* 💵💵\n💱 > U$D = AR$ > 💱\n 💲💲💲*AR$ ${new Intl.NumberFormat('es-MX').format(dolar*275)}*💲💲💲`)  
+  await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱` ,);
+})
   .addAnswer('UNIFILAS',{
     media: 'colum2.mp4', delay: 3000})
 .addAnswer("Opciones", {capture: true, 
