@@ -127,7 +127,7 @@ media: 'banner3.jpg'})
 '2. **Edición Instantánea**:',
 'Lo que hace que nuestra plataforma 360 sea aún más especial es la edición en tiempo real. Los videos son filmados y compartidos en el momento, ya editados automáticamente. Esto significa que tus invitados pueden disfrutar de la emoción de ver sus momentos especiales de inmediato.',
 '3. **Accesorios Divertidos**:',
-'No hay diversión sin accesorios, ¿verdad? Ofrecemos una amplia variedad de accesorios, desde pelucas y anteojos extravagantes hasta pistolas lanzaburbujas y cotillón. Tus invitados pueden elegir sus accesorios y transformarse en personajes únicos.',
+'No hay diversión sin accesorios, ¿verdad? Ofrecemos pistolas lanzaburbujas y lanza billetes.',
 '4. **Flexibilidad en el Tiempo**:',
 'El tiempo de alquiler de la Plataforma 360 es flexible y se adapta a las necesidades de tu evento. Puedes contratarla por un mínimo de 2 horas, asegurándote de que tus invitados tengan suficiente tiempo para divertirse y crear recuerdos inolvidables.',
 'En Selfie Mirror, nos apasiona llevar la diversión y la innovación a tus eventos sociales. Ya sea una fiesta de cumpleaños, una boda o cualquier ocasión especial, la Plataforma 360 agrega una dimensión emocionante que tus invitados recordarán. Contáctanos hoy para obtener más información, disponibilidad y precios. ¡Haz que tus eventos sociales sean inolvidables con la Plataforma 360 de Selfie Mirror!'])
@@ -146,10 +146,10 @@ media: 'banner3.jpg'})
 '\nEl servicio dura 2 horas. Durante ese tiempo no existe límite de capturas.',
 'Los videos son filmados y compartidos en el momento ya editados escaneando un codigo QR',
 'Incluye accesorios (pistola lanza burbujas, lanza billetes.)',
-'El valor del servicio de 2 horas es de $ 100.000 .-'])
+'El valor del servicio de 2 horas es de $ 150.000 .-'])
 .addAnswer(['\n*Espejo Magico*',
-'\nValor Servicio por 2 Horas $ 130.000',
-'\nValor ambos servicios por 2 Horas $ 240.000',
+'\nValor Servicio por 2 Horas $ 150.000',
+'\nValor ambos servicios por 2 Horas $ 275.000',
 '\nEl minimo de alquiler son 2 horas',
 '\nEl valor de la Hora adicional es de $ 75.000'])
 .addAnswer(['🚚El valor no incluye traslados'])
@@ -329,10 +329,10 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   .then(response => response.json())
   .then(json => dolar = json.venta)
   console.log('VENTA')
-  await flowDynamic(`*VALORES*\n   *ESPEJO MAGICO* \n  💵   *U$D 1,500 .-*   🔒 \n 💱 > U$D = AR$ > 💱 \n 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓 `,)
+  await flowDynamic(`*VALORES*\n   *ESPEJO MAGICO* \n  💵   *U$D 1,700 .-*   🔒 \n 💱 > U$D = AR$ > 💱 \n 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1700)} .-🔓 `,)
   await flowDynamic(`\n\n*PLATAFORMA 360*\n  💵   *U$D 1,500 .-*   🔒 \n  💱 > U$D = AR$ > 💱\n  📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`,)
   await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱` ,)
-  await flowDynamic( `\n\n*FILA VIP*\n  ORGANIZADORES DE FILA PIXEL\n  🚧 NEGRO  ◼️  PLATA 🥈  ORO  🥇 \n  AR$ 60.000 ◼️ 85.000 🥈 95.000 🥇\n  SOGAS TRENZADA. CAPUCHON\n  ⛓️  NEGRO ◼️  PLATA  🥈  ORO  🥇\n  AR$ 14.000 ◼️ 15.000 🥈 25.000 🥇\n  PACK 4 PIXEL + 2 SOGAS (NEGRO)\n 💲💲💲 AR$ 255.000 💲💲💲`)})
+  await flowDynamic( `\n\n*FILA VIP*\n  ORGANIZADORES DE FILA PIXEL CON BASE DE ACERO INOX \n  *U$S 70 c/u*. \n   ó  \n *AR$ ${new Intl.NumberFormat('es-MX').format(dolar*70)}*  \n  SOGAS TRENZADA COLOR\n  *U$S 20* \n   ó  \n *AR$ ${new Intl.NumberFormat('es-MX').format(dolar*20)}* \nPROMO x4 UNIFILAS + 2 SOGAS \n 💲💲💲 *U$S 275* 💲💲💲\n   ó  \n *AR$ ${new Intl.NumberFormat('es-MX').format(dolar*275)}*`)})
 
 .addAnswer("Opciones", {capture: true, 
   buttons: [
