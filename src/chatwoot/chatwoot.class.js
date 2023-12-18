@@ -1,3 +1,5 @@
+const { readFile } = require('fs/promises');
+
 class ChatwootClass {
 
     config = {
@@ -99,7 +101,7 @@ class ChatwootClass {
             dataIn.from = this.formatNumber(dataIn.from)
 
             const data = {
-                inbox_id: 1,
+                inbox_id: dataIn.inbox,
                 name: dataIn.name,
                 phone_number: dataIn.from,
             };
@@ -238,26 +240,41 @@ class ChatwootClass {
     }
 
     /**
+     * Esta funcion ha sido modificada para poder enviar archivos multimedia y texto
      * [messages]
      * @param {mode}  "incoming" | "outgoing"
      * @param {*} dataIn 
      * @returns 
      */
-    createMessage = async (dataIn = { msg: '', mode: '', conversation_id: '' }) => {
+    createMessage = async (dataIn = {type: '', msg: '', mode: '', conversation_id: '', attachment: [] }) => {
         try {
-
-            const body = {
-                content: dataIn.msg,
-                message_type: dataIn.mode,
-                private: true,
-            }
-
             const url = this.buildBaseUrl(`/conversations/${dataIn.conversation_id}/messages`)
+            const form = new FormData();
+          
+            form.set("content", dataIn.msg);
+            form.set("message_type", dataIn.mode);
+            form.set("private", "true");
+    
+            if(dataIn.attachment?.length){
+
+                const mimeType = dataIn.type;
+                const fileContent = await readFile(dataIn.attachment[0]);
+                const fileName  = `${dataIn.attachment[0]}`.split('/').pop()
+                const blob = new Blob([fileContent], { type: mimeType });
+
+                console.log("Blob with MIME type:", blob);
+                form.set("attachments[]", blob, fileName);
+                //form.set("attachments[]", blob, fileName);
+            }
+    
+            
             const dataFetch = await fetch(url,
                 {
                     method: "POST",
-                    headers: this.buildHeader(),
-                    body: JSON.stringify(body)
+                    headers: {
+                        api_access_token:this.config.token
+                    },
+                    body: form
                 }
             );
             const data = await dataFetch.json();
@@ -267,6 +284,39 @@ class ChatwootClass {
             return
         }
     }
+
+
+    asignaragente = async (dataIn = {type: '', msg: '',conversation_id:"" }) => {
+        try {
+            const url = this.buildBaseUrl(`/conversations/${dataIn.conversation_id}/assignments`)
+            const form = new FormData();
+          
+
+            form.set("assignee_id", dataIn.type);
+            
+
+    
+
+    
+            
+            const dataFetch = await fetch(url,
+                {
+                    method: "POST",
+                    headers: {
+                        api_access_token:this.config.token
+                    },
+                    body: form
+                }
+            );
+            const data = await dataFetch.json();
+            console.error(`[enviosatis]`, data)
+            return data
+        } catch (error) {
+            console.error(`[Error asignando usuario]`, error)
+            return
+        }
+    }
+    
 
     /**
      * [inboxes]

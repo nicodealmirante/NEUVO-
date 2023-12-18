@@ -1,4 +1,10 @@
 require('dotenv').config()
+
+const axios = require("axios");
+// const Queue = require('queue-promise')
+const mimeType = require('mime-types')
+const fs = require('node:fs/promises');
+
 const { createBot, createProvider, createFlow, addKeyword, EVENTS, ProviderClass } = require('@bot-whatsapp/bot')
 const Queue = require('queue-promise')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
@@ -651,12 +657,11 @@ return  gotoFlow(Menuflow);
 
 
 
-    const chatwoot = new ChatwootClass({
-        account: '1',
-        token: '1W8TXV3GaHFo3eCm9gfZ572J',
-        endpoint: 'chatwoot-production-d593.up.railway.app'
-        
-    })
+const chatwoot = new ChatwootClass({
+  account: process.env.CHATWOOT_ACCOUNT_ID,
+  token: process.env.CHATWOOT_TOKEN,
+  endpoint: process.env.CHATWOOT_ENDPOINT
+})
     
     const queue = new Queue({
         concurrent: 1,
@@ -668,10 +673,12 @@ return  gotoFlow(Menuflow);
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow,Cliente])
 
         const adapterProvider = createProvider(MetaProvider, {
-          jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
-          numberId: '133862353148114',
+          jwtToken: process.env.jwtToken,
+          numberId: process.env.numberId,
           verifyToken: 'asdasd',
-          version: 'v18.0'})
+          version: 'v18.0',
+        });
+      
         
           
         const bot = await createBot({
@@ -684,17 +691,131 @@ return  gotoFlow(Menuflow);
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */
+
+
+
     
-        adapterProvider.on('message', (payload) => {
-            queue.enqueue(async () => {
-                await handlerMessage({
-                    phone:payload.from, 
-                    name:payload.pushName,
-                    message: payload.body, 
-                    mode:'incoming'
-                }, chatwoot)
-            });
-        })
+  const downloadMediaMessage = async (ctx) => {
+      console.log("qqqqqqqqqqqq",ctx)
+      try {
+          const response = await axios.get(ctx.url, {
+              responseType: 'arraybuffer',
+              headers: {
+                  'Authorization': `Bearer ${process.env.jwtToken}`
+              }
+          });
+          return Buffer.from(response.data, 'binary');
+      } catch (error) {
+          console.error(`Error al descargar el medio: ${error}`);
+          throw error;
+      }
+  };
+
+
+  adapterProvider.on("message", (payload) => {
+    console.log("payload", payload);
+    queue.enqueue(async () => {
+      try {
+        const attachment = [];
+
+        if (payload?.body.includes("_event_media_")) {
+
+          const mime_type = payload.mime_type;
+          const ext = mimeType.extension(`${mime_type}`);
+
+          const buffer = await downloadMediaMessage(payload, "buffer");
+
+          const fileName = `file-${Date.now()}.${ext}`;
+          const pathFile = `${process.cwd()}/public/${fileName}`;
+          await fs.writeFile(pathFile, buffer);
+
+          attachment.push(pathFile);
+
+
+          await handlerMessage({
+              type: payload.mime_type,
+              phone: payload.from,
+              name: payload.pushName,
+              message: payload.caption ? payload.caption : "",
+              attachment,
+              mode: 'incoming'
+          }, chatwoot)
+
+
+        } else if (payload?.body.includes("_event_document_")) {
+          function obtenerExtension(nombreArchivo) {
+            return nombreArchivo.split(".").pop();
+          }
+
+          const mime_type = payload.mime_type;
+          const nombre = payload.filename;
+          console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",nombre);
+          ext = obtenerExtension(nombre);
+
+          buffer = await downloadMediaMessage(payload, "buffer");
+
+          const fileName = `file-${Date.now()}.${ext}`;
+          const pathFile = `${process.cwd()}/public/${fileName}`;
+          await fs.writeFile(pathFile, buffer);
+
+          attachment.push(pathFile);
+
+          
+          await handlerMessage({
+              type: payload.type,
+              phone: payload.from,
+              name: payload.pushName,
+              message: payload.caption ? payload.caption : (payload.filename ? payload.filename : ""),
+              attachment,
+              mode: 'incoming'
+          }, chatwoot)
+
+        } else if (payload?.body.includes("_event_audio_")) {
+
+          const mime_type = payload.mime_type;
+          const ext = mimeType.extension(`${mime_type}`);
+
+          buffer = await downloadMediaMessage(payload, "buffer");
+
+          const fileName = `file-${Date.now()}.${ext}`;
+          const pathFile = `${process.cwd()}/public/${fileName}`;
+          await fs.writeFile(pathFile, buffer);
+
+          attachment.push(pathFile);
+
+          
+          await handlerMessage({
+              type: payload.mime_type,
+              phone: payload.from,
+              name: payload.pushName,
+              message: payload.caption ? payload.caption : (payload.filename ? payload.filename : ""),
+              attachment,
+              mode: 'incoming'
+          }, chatwoot)
+        } else {
+
+          
+          // Proceso para manejar otros tipos de eventos
+          // Aquí puedes manejar mensajes que no sean media o documentos
+          const genericMessage = payload.body; // Mensaje original
+
+          await handlerMessage(
+            {
+              type: payload.type,
+              phone: payload.from,
+              name: payload.pushName,
+              message: genericMessage, // Mensaje original para otros casos
+              attachment,
+              mode: "incoming",
+            },
+            chatwoot
+          );
+        }
+      } catch (err) {
+        console.log("ERROR123", err);
+      }
+    });
+  });
     
         /**
          * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
